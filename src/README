@@ -1,0 +1,59 @@
+mohammad.awa
+314933243
+
+The trees package was implemented with the intention of
+simulating tree objects within a game environment,
+focusing on their structure, behavior, and interaction
+with other game elements such as the avatar and the day-night cycle.
+This implementation aims to enhance the game's visual appeal
+and interactive dynamics.
+
+1. Class Details within the trees Package
+Tree: The central class that represents a complete tree,
+including its trunk, leaves, and fruits. It serves as a
+composite object that combines these elements into a cohesive unit.
+TreeTrunk: Represents the trunk of the tree.
+It's designed to be a static, immovable object with physical
+properties to prevent intersection with other objects,
+thereby simulating a solid trunk.
+TreeLeaves: A collection of Leaf objects that represent the
+leaves of the tree. This class manages the creation and
+behavior of leaves, including their visual representation and
+reactions to environmental changes or interactions.
+Leaf: Individual leaf objects that can change properties
+such as color or rotation to simulate effects like wind
+or interaction with the game's avatar.
+Fruits: Similar to TreeLeaves, this class manages a
+collection of Fruit objects, simulating fruits that can
+be interacted with by the avatar for energy gains or other effects.
+2. Relationships Between the Classes
+Composition: The Tree class acts as a composite object that
+holds instances of TreeTrunk, TreeLeaves, and Fruits.
+This reflects a real-world analogy where a tree comprises these elements,
+showcasing a clear compositional relationship.
+Aggregation: TreeLeaves and Fruits aggregate multiple Leaf
+and Fruit objects, respectively. They manage collections of these items,
+allowing for collective behavior and properties
+(e.g., rendering, interactions) to be applied.
+Dependency: The Leaf and Fruit classes depend on the game's environment,
+such as Vector2 for positioning and other game object properties for their rendering and behavior.
+Additionally, Fruits and TreeLeaves depend on external factors
+like GameObjectCollection for adding their elements to the game world.
+3. Design Pattern Usage
+In the implementation of the trees package, several
+design principles and potentially a design pattern have been used:
+
+Composite Pattern: Most evidently seen in the Tree class,
+which acts as a composite of TreeTrunk, TreeLeaves,
+and Fruits.
+This pattern allows for treating individual and compositions of objects uniformly,
+facilitating the management of tree elements as a single object or individually.
+Iterator Pattern: Utilized in TreeLeaves and Fruits to provide a way to
+access the elements of a collection (leaves or fruits) sequentially without
+exposing the underlying representation. This pattern is directly supported
+by implementing the Iterable<GameObject> interface.
+While the composite and iterator patterns are the most prominent,
+other principles of object-oriented design, such as encapsulation
+and modularity, are also adhered to, ensuring a clear structure,
+separation of concerns, and the ability to extend or modify
+parts of the package with minimal impact on others.
